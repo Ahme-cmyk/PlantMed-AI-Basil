@@ -22,8 +22,15 @@ if 'page' not in st.session_state:
 if st.session_state.page == 'welcome':
     st.markdown("<br><br>", unsafe_allow_html=True)
     
-    # تنسيق العناوين في المنتصف
-    st.markdown("<h1 style='text-align: center;'>🌿 مرحباً بكم في منصة P.L.A.N.T. M.E.D. AI</h1>", unsafe_allow_html=True)
+    # تنسيق العنوان المزدوج (يمين ثم منتصف) بناءً على طلبك
+    st.markdown("""
+    <div style='direction: rtl;'>
+        <h1 style='text-align: right; margin-bottom: 0px;'>🌿 مرحباً بكم في منصة</h1>
+        <h1 style='text-align: center; margin-top: 5px; font-family: sans-serif;'>P.L.A.N.T. M.E.D. AI</h1>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    # العنوان الفرعي متسنتر في المنتصف
     st.markdown("<h3 style='text-align: center;'>النظام الذكي المطور لتشخيص أمراض المحاصيل الزراعية</h3>", unsafe_allow_html=True)
     
     st.markdown("<br>---<br>", unsafe_allow_html=True)
@@ -47,10 +54,10 @@ if st.session_state.page == 'welcome':
     
     st.markdown("<br>", unsafe_allow_html=True)
     
-    # زرار الانتقال لصفحة الفحص (هو كدة كدة واخد use_container_width يعني هيملا السنتر تلقائي)
+    # زرار الانتقال لصفحة الفحص
     if st.button("🚀 اضغط هنا للدخول إلى نظام الفحص الذكي", use_container_width=True):
-        st.session_state.page = 'app' # تغيير الحالة للانتقال للصفحة التالية
-        st.rerun() # إعادة إنعاش الصفحة لعرض الكود الجديد فوراً
+        st.session_state.page = 'app'
+        st.rerun()
         
 # ==========================================
 # ⚙️ ثانياً: صفحة السيستم والفحص
