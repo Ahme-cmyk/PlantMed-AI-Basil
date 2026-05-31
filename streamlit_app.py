@@ -128,4 +128,4 @@ elif st.session_state.page == 'app':
                     
                     DISEASES_DATABASE = {
                         "Downy_Mildew": {
-                            "
+                            
