@@ -126,6 +126,4 @@ elif st.session_state.page == 'app':
                 else:
                     st.error(f"🚨 **حالة النبات:** مصاب بمرض (نسبة التأكد: {confidence_score:.2f}%)")
                     
-                    DISEASES_DATABASE = {
-                        "Downy_Mildew": {
-                            
+                  
