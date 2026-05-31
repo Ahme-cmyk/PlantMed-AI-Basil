@@ -59,11 +59,17 @@ elif st.session_state.page == 'app':
     st.title("🌱 لوحة فحص أوراق الريحان")
     st.write("وجه الكاميرا أو ارفع صورة لورقة الريحان للكشف عن حالتها الصحية فوراً وخطة علاجها.")
 
-    # تحميل الموديل الذكي الجديد بأمان واستقرار
+    # تحميل الموديل الذكي الجديد بأمان واستقرار مع تخطي مشاكل الطبقات
     @st.cache_resource
     def load_basil_model():
-        model_path = 'Basil_Smart_Model.keras' 
-        return tf.keras.models.load_model(model_path)
+        model_path = 'Basil_Smart_Model.keras'
+        # الحل السحري: إجبار كيراتين على تخطي الأخطاء الشائعة في مسميات الأجيال القديمة والجديدة
+        try:
+            return tf.keras.models.load_model(model_path, compile=False)
+        except Exception:
+            # حل بديل قوي جداً لو السيرفر شغال بـ Keras 3
+            import keras
+            return keras.models.load_model(model_path, compile=False)
 
     try:
         model = load_basil_model()
