@@ -115,8 +115,7 @@ elif st.session_state.page == 'app':
     CLASS_NAMES = ['Downy_Mildew', 'Healthy', 'Leaf_Spot']
 
     if final_image is not None:
-        st.image(final_image, caption='📷 الصورة التي يتم تحليلها حالياً', use_container_width=True)
-        
+st.image(final_image, caption='📷 الصورة التي يتم تحليلها حالياً', use_column_width=True)        
         if not models_loaded:
             st.error("لا يمكن فحص الصورة لأن الموديل لم يتم تحميله بشكل صحيح.")
         else:
