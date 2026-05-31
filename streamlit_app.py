@@ -126,4 +126,29 @@ elif st.session_state.page == 'app':
                 else:
                     st.error(f"🚨 **حالة النبات:** مصاب بمرض (نسبة التأكد: {confidence_score:.2f}%)")
                     
-                  
+                    DISEASES_DATABASE = {
+                        "Downy_Mildew": {
+                            "title": "البياض الزغبي (Basil Downy Mildew)",
+                            "fast": "عزل النباتات المصابة فوراً، تقليل نسبة الرطوبة داخل الصوبة، ووقف الري العلوي (الرش الورقي) تماماً وتجنب تبلل الأوراق.",
+                            "chemical": "الرش الفوري بمبيد فطري جهازي متخصص يحتوي على مادة فعالة مثل (ميتالاكسيل) أو المركبات النحاسية لحماية النموات الجديدة."
+                        },
+                        "Leaf_Spot": {
+                            "title": "تبقع الأوراق (Basil Leaf Spot)",
+                            "fast": "التخلص من الأوراق السفلية المصابة وحرقها بعيداً، تحسين تهوية المكان وزيادة المسافات بين النباتات لتجفيف الأوراق بسرعة.",
+                            "chemical": "استخدام مركبات النحاس الوقائية (مثل كبريتات النحاس الميكرونية) بانتظام كل 7-10 أيام لمنع انتشار البقع."
+                        }
+                    }
+                    
+                    current_disease = DISEASES_DATABASE[detected_status]
+                    st.warning(f"🔍 **التشخيص الدقيق للمرض:** {current_disease['title']}")
+                    
+                    col1, col2 = st.columns(2)
+                    with col1:
+                        st.subheader("⏱️ الإجراء السريع والفوري:")
+                        st.info(current_disease["fast"])
+                    with col2:
+                        st.subheader("🧪 العلاج الكيميائي والمبيدات:")
+                        st.warning(current_disease["chemical"])
+                        
+            except Exception as e:
+                st.error(f"حدث خطأ أثناء معالجة الصورة: {e}")
