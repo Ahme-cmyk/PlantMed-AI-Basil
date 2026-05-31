@@ -22,10 +22,10 @@ if 'page' not in st.session_state:
 if st.session_state.page == 'welcome':
     st.markdown("<br><br>", unsafe_allow_html=True)
     
-    # تنسيق العنوان المزدوج (يمين ثم منتصف) بناءً على طلبك
+    # تنسيق العنوان بالكامل في المنتصف (السطر الأول ثم السطر الثاني)
     st.markdown("""
     <div style='direction: rtl;'>
-        <h1 style='text-align: right; margin-bottom: 0px;'>🌿 مرحباً بكم في منصة</h1>
+        <h1 style='text-align: center; margin-bottom: 0px;'>🌿 مرحباً بكم في منصة</h1>
         <h1 style='text-align: center; margin-top: 5px; font-family: sans-serif;'>P.L.A.N.T. M.E.D. AI</h1>
     </div>
     """, unsafe_allow_html=True)
